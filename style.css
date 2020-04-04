@@ -10,16 +10,17 @@ ul,ol{
   width: 1em; height: 1em;
   vertical-align: -0.15em;
   fill: currentColor;
-  overflow: hidden;
-  /* color: black; */
 }
 
 canvas{
     background:white;
     display:block;
+    position: fixed;  /*下三行解决页面在手机上滑动*/
+    top: 0;
+    left: 0;
   }
   body{
-    margin:0;
+    overflow: hidden;
   }
   .actions{
     position:fixed;
@@ -36,7 +37,6 @@ canvas{
   .actions svg.active{
     fill: red;
     transform: scale(1.2);
-    
   }
   .colors{
     position: fixed;
@@ -63,4 +63,21 @@ canvas{
     box-shadow: 0 0 10px rgba(0,0,0,0.7);
     transform: scale(1.2);
   }
-  
+  .sizes{
+    position: fixed;
+    right: 25px;
+    top: 10px;
+  }
+  .sizes >li{
+    margin: 20px 0;
+  }
+  .sizes > .thin{
+    height: 0;
+    width: 20px;
+    border-top: 3px solid black;
+  }
+  .sizes > .thick{
+    height: 0;
+    width: 20px;
+    border-top: 6px solid black;
+  }
