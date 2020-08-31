@@ -1,0 +1,151 @@
+*{margin: 0;padding:0;box-sizing: border-box;}
+
+body{
+    height: 100vh;
+
+}
+canvas{
+    width: 100%;
+    height: 100%;
+    background:center url('../img/grid.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+    z-index: -1;
+}
+h3{
+    width: 100%;
+    line-height: 50px;
+    background: white;
+    text-align: center;
+}
+
+.nav{
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    .bgChange{
+        
+    }
+    .tool{
+        
+    }
+    .colors{
+        // display: flex;
+        .sizes{
+            background: black;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+        }
+        .palette{
+            display: inline;
+            list-style: none;
+            li{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                border: none;
+                display: inline-block;
+                margin: 0 3px;
+                &:nth-child(1){
+                    background: black;
+                }
+                &:nth-child(2){
+                    background: gray;
+                }
+                &:nth-child(3){
+                    background: rgb(185, 185, 185);
+                }
+                &:nth-child(4){
+                    background: blue;
+                }
+                &:nth-child(5){
+                    background: green;
+                }
+                &:nth-child(6){
+                    background: red;
+                }
+                &:nth-child(7){
+                    background: yellow;
+                }
+                &:nth-child(8){
+                    background: white;
+                }
+            }
+        }
+    }
+}
+.thickness{
+    list-style: none;
+    display: none;
+    li{
+        display: inline-block;
+        border: 1px solid red;
+        border-radius: 50%;                  
+        margin: 0 6px;
+        &:nth-child(1){
+            width: 6px;
+            height: 6px;
+        }
+        &:nth-child(2){
+            width: 8px;
+        height: 8px;
+        }
+        &:nth-child(3){
+            width: 11px;
+        height:11px;
+        }
+        &:nth-child(4){
+        width: 14px;
+        height: 14px;
+        }
+        &:nth-child(5){
+            width: 17px;
+        height: 17px;
+        }
+    }
+    
+    
+}
+
+.icon{
+    width: 35px;
+    height: 35px;
+    margin: 0 3px;
+}
+.sizes #close{
+    width: 15px;
+    height: 15px;
+    float: right;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.bgChange > button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    // box-shadow: 0px -1px 9px 2px rgba(194,192,194,1);
+    border: 2px solid #f6f7f8;
+    &.grid{
+    background:center url(../img/smallgrid.png);
+    background-size: 110%;
+    }
+    &.white{
+        background: white;
+        margin-left: 6px;
+    }
+}
+.tool > button{
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    &.clear{
+        background: blue;
+
+    }
+    &.save{
+        background: red;
+    }
+}
