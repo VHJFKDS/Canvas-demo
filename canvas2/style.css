@@ -24,6 +24,7 @@ h3 {
   line-height: 50px;
   background: white;
   text-align: center;
+  border-bottom: 0.7px solid #e8e8e8;
 }
 
 .nav {
@@ -34,103 +35,112 @@ h3 {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px;
+  padding: 7px;
+  border-bottom: 0.7px solid #e8e8e8;
 }
 
-.nav .colors .sizes {
-  background: black;
+.nav .drawingBoard .sizes {
   width: 17px;
   height: 17px;
   border-radius: 50%;
+  display: inline-block;
 }
 
-.nav .colors .palette {
+.nav .drawingBoard .palette {
+  margin: 0 20px;
   display: inline;
   list-style: none;
 }
 
-.nav .colors .palette li {
+.nav .drawingBoard .palette li {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
   display: inline-block;
   margin: 0 3px;
+  cursor: pointer;
 }
 
-.nav .colors .palette li:nth-child(1) {
+.nav .drawingBoard .palette li:nth-child(1) {
   background: black;
 }
 
-.nav .colors .palette li:nth-child(2) {
+.nav .drawingBoard .palette li:nth-child(2) {
   background: gray;
 }
 
-.nav .colors .palette li:nth-child(3) {
+.nav .drawingBoard .palette li:nth-child(3) {
   background: #b9b9b9;
 }
 
-.nav .colors .palette li:nth-child(4) {
+.nav .drawingBoard .palette li:nth-child(4) {
   background: blue;
 }
 
-.nav .colors .palette li:nth-child(5) {
+.nav .drawingBoard .palette li:nth-child(5) {
   background: green;
 }
 
-.nav .colors .palette li:nth-child(6) {
+.nav .drawingBoard .palette li:nth-child(6) {
   background: red;
 }
 
-.nav .colors .palette li:nth-child(7) {
+.nav .drawingBoard .palette li:nth-child(7) {
   background: yellow;
 }
 
-.nav .colors .palette li:nth-child(8) {
+.nav .drawingBoard .palette li:nth-child(8) {
   background: white;
 }
 
 .thickness {
   list-style: none;
   display: none;
+  width: 60px;
+  border-radius: 3px;
+  border: 1px solid white;
+  background: white;
+  -webkit-box-shadow: 0px 1px 12px -4px rgba(0, 0, 0, 0.75);
+          box-shadow: 0px 1px 12px -4px rgba(0, 0, 0, 0.75);
 }
 
 .thickness li {
-  display: inline-block;
-  border: 1px solid red;
-  border-radius: 50%;
+  padding: 6px 0;
   margin: 0 6px;
+  background: white;
 }
 
 .thickness li:nth-child(1) {
-  width: 6px;
-  height: 6px;
+  border-bottom: 4px solid black;
 }
 
 .thickness li:nth-child(2) {
-  width: 8px;
-  height: 8px;
+  border-bottom: 5px solid black;
 }
 
 .thickness li:nth-child(3) {
-  width: 11px;
-  height: 11px;
+  border-bottom: 7px solid black;
 }
 
 .thickness li:nth-child(4) {
-  width: 14px;
-  height: 14px;
+  border-bottom: 8.5px solid black;
 }
 
 .thickness li:nth-child(5) {
-  width: 17px;
-  height: 17px;
+  border-bottom: 10px solid black;
+  margin-bottom: 7px;
+}
+
+.sizes:active > ol {
+  display: block;
 }
 
 .icon {
   width: 35px;
-  height: 35px;
+  height: 40px;
   margin: 0 3px;
+  cursor: pointer;
 }
 
 .sizes #close {
@@ -145,6 +155,7 @@ h3 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  cursor: pointer;
   border: 2px solid #f6f7f8;
 }
 
@@ -159,16 +170,21 @@ h3 {
 }
 
 .tool > button {
-  padding: 5px;
+  padding: 8px 25px;
   border: none;
   border-radius: 5px;
 }
 
-.tool > button.clear {
-  background: blue;
+.tool > button#clear {
+  background: #1a9fff;
 }
 
-.tool > button.save {
-  background: red;
+.tool > button#save {
+  background: #cb4a32;
+}
+
+.tool > button .toolIcon {
+  width: 24px;
+  height: 24px;
 }
 /*# sourceMappingURL=style.css.map */

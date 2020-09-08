@@ -15,24 +15,21 @@
                 <button class="grid"></button>
                 <button class="white"></button>
             </div>
-            <div class="colors">
+           
+            <div class="drawingBoard">
                 <img class="icon" id="pen" src="../img/pen.svg" alt="Pen">
                 <img class="icon" id="eraser" src="../img/eraser.svg" alt="Eraser">
                 <div class="sizes">
-                    <div class="lineSizes"></div>
-                    <span>5</span>
-                </div>
-                <div class="thickness">
-                    <img class="icon" id="close" src="../img/Clear.svg">
-                        <h5>Thickness</h5>
-                        <ol>
+                   
+                        <img class="icon" id="lineSizes" src="../img/line.svg" alt="Sizes"></img>
+                        <ol class="thickness">
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
                         </ol>
-                    </div>
+                </div>
                 <ol class="palette">
                     <li id="black" class="black"></li>
                     <li id="gray" class="gray"></li>            
@@ -41,14 +38,19 @@
                     <li id="red" class="red"></li>
                     <li id="green" class="green"></li>
                     <li id="yellow" class="yellow"></li>
-                    <li id="addColor"></li>
+                    
                 </ol>
+                
+                
             </div>
             <div class="tool">
-                <button class="clear" >
-                    svg 
+                <button class="clear" id="clear">
+                   <img class="toolIcon" src="../img/Clear.svg" alt="清空">
+                   
                 </button>
-                <button class="save">SAVE</button>
+                <button class="save" id="save">
+                    <img class="toolIcon" src="../img/save.svg" alt="保存">
+                </button>
             </div>
         </div>
 
