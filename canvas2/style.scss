@@ -2,7 +2,6 @@
 
 body{
     height: 100vh;
-
 }
 canvas{
     width: 100%;
@@ -32,13 +31,7 @@ h3{
     border-bottom: 0.7px solid #e8e8e8;
     width: 100%;
     .drawingBoard{
-        .sizes{
-            width: 17px;
-            height: 17px;
-            border-radius: 50%;
-            display: inline-block;
-            
-        }
+        display: flex;
         .palette{
             margin: 0 20px;
             display: inline;
@@ -125,14 +118,7 @@ h3{
     margin: 0 3px;
     cursor: pointer;
 }
-.sizes #close{
-    width: 15px;
-    height: 15px;
-    float: right;
-    margin-right: 5px;
-    margin-top: 5px;
-   
-}
+
 .bgChange > button{
     width: 40px;
     height: 40px;
@@ -146,7 +132,6 @@ h3{
     }
     &.white{
         background: white;
-        margin-left: 6px;
     }
 }
 .tool > button{
@@ -164,3 +149,69 @@ h3{
         height: 24px;
     }
 }
+@media (max-width: 440px){
+    h3{
+        width: 17%;
+        font-size: 12px;
+        line-height: 30px;
+        height: 5vh;
+    border-right: 0.7px solid #e8e8e8;
+    }
+    .nav{
+        top: 5vh;
+        display: block;
+        flex-direction: column;
+        border-right: 0.7px solid #e8e8e8;
+        width: 17%;
+        height: 95vh;
+        .bgChange{text-align: center;}
+        .tool{text-align: center;}
+        .drawingBoard{
+            display: inline-block;
+            text-align: center;
+            
+            .palette{
+                margin: 0;
+                li{
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+    .sizes{
+        position: relative;
+        &.sizes:active >ol{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50px;
+        }
+    }
+    
+    .bgChange > button{
+        width: 30px;
+        height: 30px;
+        &.white{
+            background: white;
+            margin: 6px 0;
+            margin-left: 0;
+        }
+    }
+    .icon{
+        margin: 6px auto;
+        width: 25px;
+        height: 25px;
+        display: block;
+    }
+    .tool > button{
+        padding: 5px 8px;
+        margin-top: 10px;
+        .toolIcon{
+            width: 24px;
+            height: 24px;
+        }
+        
+    }
+}
+

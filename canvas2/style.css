@@ -42,11 +42,10 @@ h3 {
   width: 100%;
 }
 
-.nav .drawingBoard .sizes {
-  width: 17px;
-  height: 17px;
-  border-radius: 50%;
-  display: inline-block;
+.nav .drawingBoard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .nav .drawingBoard .palette {
@@ -152,14 +151,6 @@ h3 {
   cursor: pointer;
 }
 
-.sizes #close {
-  width: 15px;
-  height: 15px;
-  float: right;
-  margin-right: 5px;
-  margin-top: 5px;
-}
-
 .bgChange > button {
   width: 40px;
   height: 40px;
@@ -175,7 +166,6 @@ h3 {
 
 .bgChange > button.white {
   background: white;
-  margin-left: 6px;
 }
 
 .tool > button {
@@ -195,5 +185,75 @@ h3 {
 .tool > button .toolIcon {
   width: 24px;
   height: 24px;
+}
+
+@media (max-width: 440px) {
+  h3 {
+    width: 17%;
+    font-size: 12px;
+    line-height: 30px;
+    height: 5vh;
+    border-right: 0.7px solid #e8e8e8;
+  }
+  .nav {
+    top: 5vh;
+    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-right: 0.7px solid #e8e8e8;
+    width: 17%;
+    height: 95vh;
+  }
+  .nav .bgChange {
+    text-align: center;
+  }
+  .nav .tool {
+    text-align: center;
+  }
+  .nav .drawingBoard {
+    display: inline-block;
+    text-align: center;
+  }
+  .nav .drawingBoard .palette {
+    margin: 0;
+  }
+  .nav .drawingBoard .palette li {
+    width: 30px;
+    height: 30px;
+  }
+  .sizes {
+    position: relative;
+  }
+  .sizes.sizes:active > ol {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50px;
+  }
+  .bgChange > button {
+    width: 30px;
+    height: 30px;
+  }
+  .bgChange > button.white {
+    background: white;
+    margin: 6px 0;
+    margin-left: 0;
+  }
+  .icon {
+    margin: 6px auto;
+    width: 25px;
+    height: 25px;
+    display: block;
+  }
+  .tool > button {
+    padding: 5px 8px;
+    margin-top: 10px;
+  }
+  .tool > button .toolIcon {
+    width: 24px;
+    height: 24px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

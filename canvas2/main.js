@@ -19,11 +19,10 @@ eraser.onclick = function () {
 ctx.onmousedown = function (a) {
     var x = a.clientX
     var y = a.clientY
+    using = true
     if (eraserEnable) {
-        using = true
         context.clearRect(x-5, y-5, 10, 10)
     } else {
-        using = true
         lastPoint = { "x": x, "y": y }
         drawCircle(x, y, 1)
 
@@ -35,18 +34,14 @@ ctx.onmousedown = function (a) {
 ctx.onmousemove = function (a) {
     var x = a.clientX
     var y = a.clientY
-    if (eraserEnable) {
-        if(using){
-            context.clearRect(x-5, y-5, 10, 10)
-        }
+    if(!using){return}
+    if (eraserEnable) {   
+            context.clearRect(x-5, y-5, 10, 10) 
     } else {
-        if (using) {
             var newPoint = { "x": x, "y": y }
             drawCircle(x, y, 1)
         drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-        lastPoint = newPoint
-        }
-        
+        lastPoint = newPoint 
     }
 
 }
