@@ -11,9 +11,10 @@ canvas{
     background-repeat: no-repeat;
     background-size: cover;
     position: fixed;
-    z-index: -1;
+    // z-index: -1;
 }
 h3{
+    position: absolute;
     width: 100%;
     line-height: 50px;
     background: white;
@@ -22,12 +23,14 @@ h3{
 }
 
 .nav{
+    position: absolute;
+    top: 51px;
     background: white;
     display: flex;
     justify-content: space-between;
     padding: 7px;
     border-bottom: 0.7px solid #e8e8e8;
-    
+    width: 100%;
     .drawingBoard{
         .sizes{
             width: 17px;
@@ -71,6 +74,10 @@ h3{
                 }
                 &:nth-child(8){
                     background: white;
+                }
+                &:active{
+                    box-shadow: 0px 1px 12px -3px rgba(0, 0, 0, 1);
+                    border: 1px solid #b9b9b9;
                 }
             }
         }
