@@ -136,23 +136,15 @@ h3 {
 }
 
 .thickness li:nth-child(2) {
-  border-bottom: 5px solid black;
-}
-
-.thickness li:nth-child(3) {
   border-bottom: 7px solid black;
 }
 
-.thickness li:nth-child(4) {
-  border-bottom: 8.5px solid black;
-}
-
-.thickness li:nth-child(5) {
+.thickness li:nth-child(3) {
   border-bottom: 10px solid black;
   margin-bottom: 7px;
 }
 
-.sizes:active > ol {
+.sizes.active > ol {
   display: block;
 }
 
@@ -161,6 +153,12 @@ h3 {
   height: 28px;
   margin: auto 5px;
   cursor: pointer;
+}
+
+.icon.active {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .bgChange > button {
@@ -190,8 +188,16 @@ h3 {
   background: #1a9fff;
 }
 
-.tool > button#save {
+.tool > button#clear:active {
+  background: #1583d1;
+}
+
+.tool > button.save {
   background: #cb4a32;
+}
+
+.tool > button.save:active {
+  background: #9b3726;
 }
 
 .tool > button .toolIcon {

@@ -20,17 +20,15 @@
         </div>
 
         <div class="drawingBoard">
-            <img class="icon" id="pen" src="../img/pen.svg" alt="Pen">
+            <img class="icon pen active" id="pen" src="../img/pen.svg" >
             <img class="icon" id="eraser" src="../img/eraser.svg" alt="Eraser">
 
-            <div class="sizes">
+            <div class="sizes" id="sizes">
                 <img class="icon" id="lineSizes" src="../img/line.svg" alt="Sizes"></img>
                 <ol class="thickness">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li id="thin" class="thin"></li>
+                    <li id="midline" class="midline"></li>
+                    <li id="thick" class="thick"></li>
                 </ol>
             </div>
             <ol class="palette">
@@ -51,7 +49,7 @@
                 <img class="toolIcon" src="../img/Clear.svg" alt="清空">
 
             </button>
-            <button class="save" id="save">
+            <button class="save" id="download">
                 <img class="toolIcon" src="../img/save.svg" alt="保存">
             </button>
         </div>
