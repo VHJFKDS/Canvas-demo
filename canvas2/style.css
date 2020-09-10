@@ -113,10 +113,31 @@ h3 {
   border: 1px solid #b9b9b9;
 }
 
+@media (min-width: 450px) {
+  .thickness {
+    display: none;
+    position: absolute;
+  }
+  .thickness li {
+    padding: 6px 0;
+    margin: 0 6px;
+    background: white;
+    cursor: pointer;
+  }
+  .thickness li:nth-child(1) {
+    border-bottom: 4px solid black;
+  }
+  .thickness li:nth-child(2) {
+    border-bottom: 7px solid black;
+  }
+  .thickness li:nth-child(3) {
+    border-bottom: 10px solid black;
+    margin-bottom: 7px;
+  }
+}
+
 .thickness {
   list-style: none;
-  display: none;
-  position: absolute;
   width: 60px;
   border-radius: 3px;
   border: 1px solid white;
@@ -129,6 +150,7 @@ h3 {
   padding: 6px 0;
   margin: 0 6px;
   background: white;
+  cursor: pointer;
 }
 
 .thickness li:nth-child(1) {
@@ -205,7 +227,7 @@ h3 {
   height: 24px;
 }
 
-@media (max-width: 440px) {
+@media (max-width: 449px) {
   h3 {
     width: 17%;
     font-size: 12px;
@@ -244,7 +266,7 @@ h3 {
   .sizes {
     position: relative;
   }
-  .sizes.sizes:active > ol {
+  .sizes.sizes > ol {
     display: block;
     position: absolute;
     top: 0;

@@ -5,6 +5,7 @@ var lineCap = ['round'];
 var using = false
 var eraserEnable = false
 var lastPoint = { x: undefined, y: undefined }
+var lineWidth = 4
 
 setCanvasSize()
 autoSetCanvasSize()
@@ -41,7 +42,7 @@ function listenToUser(ctx){
                 if (using) {
                     var newPoint = { "x": x, "y": y }
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-                    drawCircle(x, y, 5)
+                    // drawCircle(x, y, 5)
                     lastPoint = newPoint
                 }
             }
@@ -55,12 +56,14 @@ function listenToUser(ctx){
             var x = a.clientX
             var y = a.clientY
             using = true
+            
             if (eraserEnable) {
                 context.clearRect(x-5, y-5, 10, 10)
             } else {
                 lastPoint = { "x": x, "y": y }
                 drawCircle(x, y, 1)
             }
+            
         }
         ctx.onmousemove = function (a) {
             var x = a.clientX
@@ -69,8 +72,7 @@ function listenToUser(ctx){
             if (eraserEnable) {   
                     context.clearRect(x-5, y-5, 10, 10) 
             } else {
-                    var newPoint = { "x": x, "y": y }
-                    drawCircle(x, y, 1)
+                var newPoint = { "x": x, "y": y }
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint 
             }
@@ -86,15 +88,15 @@ function listenToUser(ctx){
 
 function drawCircle(x, y, radius) {
     context.beginPath()
-    context.arc(x, y, radius, 0, Math.PI * 2)
+    context.arc(x, y, radius/2, 0, Math.PI * 2)
     context.stroke()
-
 }
 function drawLine(x1, y1, x2, y2) {
+    context.lineCap = lineCap;
     context.beginPath()
     context.strokeStyle = 'black'
     context.moveTo(x1, y1)
-    context.lineWidth = 7
+    context.lineWidth = lineWidth
     context.lineTo(x2, y2)
     context.stroke()
     context.closePath()
@@ -138,6 +140,27 @@ download.onclick = function(){
     a.target = '_blank'
     a.click()
 }
-sizes.onclick = function(){
-    sizes.classList.add('active')
-} 
+var sizesStatus = 1
+function sizesChange () {
+    if(sizesStatus === 1){
+        document.getElementById('thickness').style.display="block"
+        sizesStatus=0
+    }else if(sizesStatus === 0) {
+        document.getElementById('thickness').style.display="none"
+        sizesStatus=1
+        
+    }
+}
+
+thin.onclick = function(){
+    lineWidth = 4
+    sizes.classList.remove('active')
+}
+midline.onclick = function(){
+    lineWidth = 7
+    sizes.classList.remove('active')
+}
+thick.onclick = function(){
+    lineWidth = 10
+    sizes.classList.remove('active')
+}
