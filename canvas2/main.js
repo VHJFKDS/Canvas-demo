@@ -151,6 +151,13 @@ function sizesChange () {
         
     }
 }
+grid.onclick = function(){
+    canvas.style.background = "url(../img/grid.png) center no-repeat"
+    canvas.style.backgroundSize ="cover"
+} 
+white.onclick =function(){
+    canvas.style.background = "white"
+}
 
 thin.onclick = function(){
     lineWidth = 4

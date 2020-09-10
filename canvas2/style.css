@@ -12,7 +12,8 @@ body {
 canvas {
   width: 100%;
   height: 100%;
-  background: center url("../img/grid.png");
+  background: url("../img/grid.png");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: fixed;
@@ -267,7 +268,7 @@ h3 {
     position: relative;
   }
   .sizes.sizes > ol {
-    display: block;
+    display: none;
     position: absolute;
     top: 0;
     left: 50px;
