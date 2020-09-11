@@ -71,6 +71,7 @@ function listenToUser(ctx) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 var newPoint = { "x": x, "y": y }
+                drawCircle(x, y, radius)
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
                 lastPoint = newPoint
             }
