@@ -14,31 +14,31 @@ listenToUser(ctx)
 
 
 //Listen to user
-function listenToUser(ctx){
-    
-    
-    if(document.body.ontouchstart !== undefined){
+function listenToUser(ctx) {
+
+
+    if (document.body.ontouchstart !== undefined) {
         //Mobile
-        ctx.ontouchstart = function(a){
+        ctx.ontouchstart = function (a) {
             var x = a.touches[0].clientX
             var y = a.touches[0].clientY
             using = true
-            if(eraserEnable){
-                context.clearRect(x-5, y-5, 10, 10)
-            }else {
+            if (eraserEnable) {
+                context.clearRect(x - 5, y - 5, 10, 10)
+            } else {
                 lastPoint = { "x": x, "y": y }
                 drawCircle(x, y, 1)
-        
+
             }
         }
-        ctx.ontouchmove = function(a){
+        ctx.ontouchmove = function (a) {
             var x = a.touches[0].clientX
             var y = a.touches[0].clientY
-            if(eraserEnable){
+            if (eraserEnable) {
                 if (using) {
                     context.clearRect(x - 5, y - 5, 10, 10)
                 }
-            }else {
+            } else {
                 if (using) {
                     var newPoint = { "x": x, "y": y }
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
@@ -47,38 +47,38 @@ function listenToUser(ctx){
                 }
             }
         }
-        ctx.ontouchend = function(){
+        ctx.ontouchend = function () {
             using = false
         }
-    }else{
+    } else {
         //PC
         ctx.onmousedown = function (a) {
             var x = a.clientX
             var y = a.clientY
             using = true
-            
+
             if (eraserEnable) {
-                context.clearRect(x-5, y-5, 10, 10)
+                context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 lastPoint = { "x": x, "y": y }
-                drawCircle(x, y, 1)
+                drawCircle(x, y, 1/2)
             }
-            
+
         }
         ctx.onmousemove = function (a) {
             var x = a.clientX
             var y = a.clientY
-            if(!using){return}
-            if (eraserEnable) {   
-                    context.clearRect(x-5, y-5, 10, 10) 
+            if (!using) { return }
+            if (eraserEnable) {
+                context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 var newPoint = { "x": x, "y": y }
                 drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-                lastPoint = newPoint 
+                lastPoint = newPoint
             }
         }
         ctx.onmouseup = function (a) {
-            using = false      
+            using = false
         }
 
     }
@@ -88,13 +88,14 @@ function listenToUser(ctx){
 
 function drawCircle(x, y, radius) {
     context.beginPath()
-    context.arc(x, y, radius/2, 0, Math.PI * 2)
+    context.arc(x, y, radius, 0, Math.PI * 2)
+    context.fill()
     context.stroke()
+    
 }
 function drawLine(x1, y1, x2, y2) {
     context.lineCap = lineCap;
     context.beginPath()
-    context.strokeStyle = 'black'
     context.moveTo(x1, y1)
     context.lineWidth = lineWidth
     context.lineTo(x2, y2)
@@ -123,51 +124,80 @@ eraser.onclick = function () {
     eraser.classList.add('active')
     pen.classList.remove('active')
 }
-pen.onclick = function(){
+pen.onclick = function () {
     eraserEnable = false
     pen.classList.add('active')
     eraser.classList.remove('active')
-} 
-clear.onclick = function(){
-    context.clearRect(0,0,canvas.width,canvas.height)
-} 
-download.onclick = function(){
+}
+clear.onclick = function () {
+    context.clearRect(0, 0, canvas.width, canvas.height)
+}
+download.onclick = function () {
     var url = canvas.toDataURL("image/png")
     var a = document.createElement('a')
     document.body.appendChild(a)
-    a.href=url
+    a.href = url
     a.download = 'image'
     a.target = '_blank'
     a.click()
 }
-var sizesStatus = 1
-function sizesChange () {
-    if(sizesStatus === 1){
-        document.getElementById('thickness').style.display="block"
-        sizesStatus=0
-    }else if(sizesStatus === 0) {
-        document.getElementById('thickness').style.display="none"
-        sizesStatus=1
-        
-    }
-}
-grid.onclick = function(){
+
+
+//backgroundChange
+grid.onclick = function () {
     canvas.style.background = "url(../img/grid.png) center no-repeat"
-    canvas.style.backgroundSize ="cover"
-} 
-white.onclick =function(){
+    canvas.style.backgroundSize = "cover"
+}
+white.onclick = function () {
     canvas.style.background = "white"
 }
 
-thin.onclick = function(){
+//thickness change
+thin.onclick = function () {
     lineWidth = 4
     sizes.classList.remove('active')
 }
-midline.onclick = function(){
+midline.onclick = function () {
     lineWidth = 7
     sizes.classList.remove('active')
 }
-thick.onclick = function(){
+thick.onclick = function () {
     lineWidth = 10
     sizes.classList.remove('active')
 }
+var sizesStatus = 1
+function sizesChange() {
+    if (sizesStatus === 1) {
+        document.getElementById('thickness').style.display = "block"
+        sizesStatus = 0
+    } else if (sizesStatus === 0) {
+        document.getElementById('thickness').style.display = "none"
+        sizesStatus = 1
+
+    }
+}
+
+//color change
+let colorTags = document.querySelectorAll('.palette > li')
+// function findMe(){
+    for (let i = 0; i < colorTags.length; i++) {
+        colorTags[i].onclick = function () {
+            colorTags[i].classList.add('active')
+            let color = window.getComputedStyle(colorTags[i],'null').backgroundColor
+            context.fillStyle = color
+            context.strokeStyle = color
+            let brotherAnMe = colorTags[i].parentNode.children
+            for (let j = 0; j < brotherAnMe.length; j++) {
+                if (brotherAnMe[j] != colorTags[i]) {
+                    brotherAnMe[j].classList.remove('active')
+                }
+            }
+        }
+    }
+    
+
+// colorPicker.addEventList('input',updateFirst)
+// colorPicker.addEventList('change',watchColorPicker)
+// function watchColorPicker(event){
+
+// }
