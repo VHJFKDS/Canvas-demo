@@ -107,7 +107,8 @@ h3 {
 }
 
 .nav .drawingBoard .palette li:nth-child(8) {
-  border: 1px dashed #b9b9b9;
+  -webkit-box-shadow: 0px 0px 1px 0px #737173;
+          box-shadow: 0px 0px 1px 0px #737173;
 }
 
 .nav .drawingBoard .palette li:nth-child(8).active {
@@ -134,6 +135,9 @@ h3 {
 
 input[type="color" i] {
   border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 button, input:focus {

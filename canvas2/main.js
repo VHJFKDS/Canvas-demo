@@ -1,7 +1,8 @@
 var ctx = document.getElementById('canvas')
 var context = ctx.getContext('2d')
+context.globalCompositeOperation = 'destination-over';
 var lineCap = ['round'];
-
+console.log()
 var using = false
 var eraserEnable = false
 var lastPoint = { x: undefined, y: undefined }
@@ -133,6 +134,7 @@ download.onclick = function () {
     var url = canvas.toDataURL("image/png")
     var a = document.createElement('a')
     document.body.appendChild(a)
+    a.backgroundColor = 'white'
     a.href = url
     a.download = 'image'
     a.target = '_blank'
