@@ -114,6 +114,10 @@ h3 {
   border: none;
 }
 
+.nav .drawingBoard .palette li:nth-child(8):visited {
+  border: none;
+}
+
 .nav .drawingBoard .palette li #colorPicker {
   width: 45px;
   height: 47px;

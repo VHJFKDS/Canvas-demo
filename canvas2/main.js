@@ -41,7 +41,6 @@ function listenToUser(ctx) {
                 if (using) {
                     var newPoint = { "x": x, "y": y }
                     drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-                    // drawCircle(x, y, 5)
                     lastPoint = newPoint
                 }
             }
@@ -54,13 +53,12 @@ function listenToUser(ctx) {
         ctx.onmousedown = function (a) {
             var x = a.clientX
             var y = a.clientY
-            using = true
-            drawCircle(x, y, 1/2)
-
+            using = true           
             if (eraserEnable) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 lastPoint = { "x": x, "y": y }
+                drawCircle(x, y, 1 / 2)
             }
 
         }
@@ -90,7 +88,7 @@ function drawCircle(x, y, radius) {
     context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
     context.stroke()
-    
+
 }
 function drawLine(x1, y1, x2, y2) {
     context.lineCap = lineCap;
@@ -177,26 +175,29 @@ function sizesChange() {
 }
 
 //color change
-let colorTags = document.querySelectorAll('.palette > li')
-// function findMe(){
-    for (let i = 0; i < colorTags.length; i++) {
-        colorTags[i].onclick = function () {
-            colorTags[i].classList.add('active')
-            let color = window.getComputedStyle(colorTags[i],'null').backgroundColor
-            context.fillStyle = color
-            context.strokeStyle = color
-            let brotherAnMe = colorTags[i].parentNode.children
-            for (let j = 0; j < brotherAnMe.length; j++) {
-                if (brotherAnMe[j] != colorTags[i]) {
-                    brotherAnMe[j].classList.remove('active')
-                }
+var colorTags = document.querySelectorAll('.palette > li')
+for (let i = 0; i < colorTags.length; i++) {
+    colorTags[i].onclick = function () {
+        colorTags[i].classList.add('active')
+        let selectedColor = window.getComputedStyle(colorTags[i], 'null').backgroundColor
+        context.fillStyle = selectedColor
+        context.strokeStyle = selectedColor
+        let brotherAnMe = colorTags[i].parentNode.children
+        for (let j = 0; j < brotherAnMe.length; j++) {
+            if (brotherAnMe[j] != colorTags[i]) {
+                brotherAnMe[j].classList.remove('active')
             }
         }
     }
-    
-    console.log(colorPicker.value)
-// colorPicker.addEventList('input',updateFirst)
-// colorPicker.addEventList('change',watchColorPicker)
-// function watchColorPicker(event){
+}
 
-// }
+//color Picker
+let colorInput = document.getElementById('colorPicker')
+
+colorInput.addEventListener('input', function () {
+    colorTags[colorTags.length - 1].backgroundColor = colorInput.value
+    let lastChildColor = colorTags[colorTags.length - 1].backgroundColor
+    context.fillStyle = lastChildColor
+    context.strokeStyle = lastChildColor
+}, false)
+

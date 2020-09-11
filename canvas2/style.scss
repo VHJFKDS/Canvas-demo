@@ -76,6 +76,10 @@ h3{
                     &.active{
                         border: none;
                     }
+                    &:visited{
+                        border: none;
+                    }
+                    
                 }
                 
                 #colorPicker{
