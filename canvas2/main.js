@@ -23,12 +23,11 @@ function listenToUser(ctx) {
             var x = a.touches[0].clientX
             var y = a.touches[0].clientY
             using = true
+            drawCircle(x, y, 1)
             if (eraserEnable) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 lastPoint = { "x": x, "y": y }
-                drawCircle(x, y, 1)
-
             }
         }
         ctx.ontouchmove = function (a) {
@@ -56,12 +55,12 @@ function listenToUser(ctx) {
             var x = a.clientX
             var y = a.clientY
             using = true
+            drawCircle(x, y, 1/2)
 
             if (eraserEnable) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 lastPoint = { "x": x, "y": y }
-                drawCircle(x, y, 1/2)
             }
 
         }
@@ -195,7 +194,7 @@ let colorTags = document.querySelectorAll('.palette > li')
         }
     }
     
-
+    console.log(colorPicker.value)
 // colorPicker.addEventList('input',updateFirst)
 // colorPicker.addEventList('change',watchColorPicker)
 // function watchColorPicker(event){

@@ -46,8 +46,10 @@ h3{
                 border-radius: 50%;
                 border: none;
                 display: inline-block;
-                margin: 0 3px;
+                margin: auto 3px;
                 cursor: pointer;
+                overflow: hidden;
+                position: relative;
                 &:nth-child(1){
                     background: black;
                 }
@@ -70,7 +72,18 @@ h3{
                     background: yellow;
                 }
                 &:nth-child(8){
-                    background: white;
+                    border: 1px dashed rgb(185, 185, 185);
+                    &.active{
+                        border: none;
+                    }
+                }
+                
+                #colorPicker{
+                width: 45px;
+                height: 47px;
+                margin: -6px;
+                border: none;
+                cursor: pointer;
                 }
                 &.active{
                     box-shadow: 0px 1px 12px -3px rgba(0, 0, 0, 1);
@@ -79,6 +92,12 @@ h3{
             }
         }
     }
+}
+input[type="color" i]{
+    border: none; 
+}
+button,input:focus{
+    outline: none;
 }
 @media (min-width:450px){
     .thickness{
@@ -244,4 +263,10 @@ h3{
         
     }
 }
-
+@media (max-width: 321px){
+    .tool > button{
+        padding: 2px 8px;
+        margin-top: 5px;
+        
+    }
+}

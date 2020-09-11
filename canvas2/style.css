@@ -72,8 +72,10 @@ h3 {
   border-radius: 50%;
   border: none;
   display: inline-block;
-  margin: 0 3px;
+  margin: auto 3px;
   cursor: pointer;
+  overflow: hidden;
+  position: relative;
 }
 
 .nav .drawingBoard .palette li:nth-child(1) {
@@ -105,13 +107,33 @@ h3 {
 }
 
 .nav .drawingBoard .palette li:nth-child(8) {
-  background: white;
+  border: 1px dashed #b9b9b9;
+}
+
+.nav .drawingBoard .palette li:nth-child(8).active {
+  border: none;
+}
+
+.nav .drawingBoard .palette li #colorPicker {
+  width: 45px;
+  height: 47px;
+  margin: -6px;
+  border: none;
+  cursor: pointer;
 }
 
 .nav .drawingBoard .palette li.active {
   -webkit-box-shadow: 0px 1px 12px -3px black;
           box-shadow: 0px 1px 12px -3px black;
   border: 1px solid #b9b9b9;
+}
+
+input[type="color" i] {
+  border: none;
+}
+
+button, input:focus {
+  outline: none;
 }
 
 @media (min-width: 450px) {
@@ -295,6 +317,13 @@ h3 {
   .tool > button .toolIcon {
     width: 24px;
     height: 24px;
+  }
+}
+
+@media (max-width: 321px) {
+  .tool > button {
+    padding: 2px 8px;
+    margin-top: 5px;
   }
 }
 /*# sourceMappingURL=style.css.map */
