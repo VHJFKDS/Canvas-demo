@@ -1,12 +1,12 @@
 var ctx = document.getElementById('canvas')
 var context = ctx.getContext('2d')
-context.globalCompositeOperation = 'destination-over';
+
 var lineCap = ['round'];
-console.log()
 var using = false
 var eraserEnable = false
 var lastPoint = { x: undefined, y: undefined }
 var lineWidth = 4
+var radius = 2
 
 setCanvasSize()
 autoSetCanvasSize()
@@ -23,12 +23,12 @@ function listenToUser(ctx) {
         ctx.ontouchstart = function (a) {
             var x = a.touches[0].clientX
             var y = a.touches[0].clientY
-            using = true
-            drawCircle(x, y, 1)
+            using = true          
             if (eraserEnable) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 lastPoint = { "x": x, "y": y }
+                drawCircle(x, y, radius)
             }
         }
         ctx.ontouchmove = function (a) {
@@ -59,7 +59,7 @@ function listenToUser(ctx) {
                 context.clearRect(x - 5, y - 5, 10, 10)
             } else {
                 lastPoint = { "x": x, "y": y }
-                drawCircle(x, y, 1 / 2)
+                drawCircle(x, y, radius)
             }
 
         }
@@ -88,7 +88,7 @@ function drawCircle(x, y, radius) {
     context.beginPath()
     context.arc(x, y, radius, 0, Math.PI * 2)
     context.fill()
-    context.stroke()
+    // context.stroke()
 
 }
 function drawLine(x1, y1, x2, y2) {
@@ -152,26 +152,35 @@ white.onclick = function () {
 }
 
 //thickness change
+smallest.onclick = function () {
+    lineWidth = 2
+    radius = 1
+    sizes.classList.remove('active')
+}
 thin.onclick = function () {
     lineWidth = 4
+    radius = 2
     sizes.classList.remove('active')
 }
 midline.onclick = function () {
-    lineWidth = 7
+    lineWidth = 6
+    radius = 3
     sizes.classList.remove('active')
 }
 thick.onclick = function () {
-    lineWidth = 10
+    lineWidth = 8
+    radius = 4
     sizes.classList.remove('active')
 }
-var sizesStatus = 1
+
+var olStatus = 1
 function sizesChange() {
-    if (sizesStatus === 1) {
+    if (olStatus === 1) {
         document.getElementById('thickness').style.display = "block"
-        sizesStatus = 0
-    } else if (sizesStatus === 0) {
+        olStatus = 0
+    } else if (olStatus === 0) {
         document.getElementById('thickness').style.display = "none"
-        sizesStatus = 1
+        olStatus = 1
 
     }
 }
